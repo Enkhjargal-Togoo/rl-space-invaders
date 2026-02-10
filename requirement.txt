@@ -1,0 +1,28 @@
+# import necessary libraries
+import time
+import math
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import matplotlib.pyplot as plt
+import torch.optim as optim
+import csv
+import random
+
+#Register Ale and test environment
+import os
+os.environ["ALE_ROMS"] = "/root/.gymnasium/atari_roms"  # point ALE to the ROMs
+import gymnasium as gym
+import ale_py  # this registers the Atari environments with Gymnasium
+# Show available ALE name spaces
+print("Registered namespaces:", sorted(set(k.split('/')[0] for k in gym.registry.keys())))
+
+from gymnasium import spaces
+from collections import deque, namedtuple
+import moviepy as mpy
+from moviepy.editor import ImageSequenceClip
+from torch.distributions import Categorical
+from gymnasium.wrappers import RecordEpisodeStatistics
+from gymnasium.vector import SyncVectorEnv
+
